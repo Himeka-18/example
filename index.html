@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <title>Monaca Education ダイレクトプレビュー</title>
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/education.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <h1>お小遣いアプリ</h1>
+
+    <!-- テーマ切り替え -->
+    <div style="text-align: right; margin-bottom: 15px;">
+        <label for="themeSelect" style="font-weight: bold; font-size: 14px;">🎨 テーマ：</label>
+        <select id="themeSelect" onchange="changeTheme()">
+            <option value="brown">カントリーブラウン</option>
+            <option value="green">ナチュラルグリーン</option>
+            <option value="pink">スウィートピンク</option>
+            <option value="blue">クラシックブルー</option>
+        </select>
+    </div>
+
+    <h2>記録の一覧</h2>
+    <table border="1" id="moneyRecord">
+        <caption>お小遣いの記録（行をクリックすると修正モードになります）</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名目</th>
+                <th>金額</th>
+                <th>フロー</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <table border="1">
+        <caption>収入と支出の集計結果</caption>
+        <tr>
+            <th>収入の合計</th>
+            <td id="incomeTotal">-</td>
+        </tr>
+        <tr>
+            <th>支出の合計</th>
+            <td id="outgoTotal">-</td>
+        </tr>
+        <tr>
+            <th>所持金</th>
+            <td id="money">-</td>
+        </tr>
+    </table>
+
+    <h2>データ操作</h2>
+    <form id="mainForm" autocomplete="off">
+        <!-- モード選択 -->
+        <div style="margin-bottom: 12px; font-weight: bold;">
+            操作：
+            <label><input type="radio" name="mode" value="insert" checked onclick="switchMode()"> 新規記録</label>
+            <label><input type="radio" name="mode" value="update" onclick="switchMode()"> 修正</label>
+            <label><input type="radio" name="mode" value="delete" onclick="switchMode()"> 削除</label>
+        </div>
+
+        <!-- 入力項目 -->
+        <div id="idField" style="display: none;">
+            ID：<input type="number" name="id" placeholder="対象のID"><br>
+        </div>
+        
+        <div id="detailFields">
+            名目：<input type="text" name="title"><br>
+            金額：<input type="number" name="price"><br>
+            <input type="radio" name="flow" value="1">収入
+            <input type="radio" name="flow" value="-1" checked>支出<br>
+        </div>
+
+        <!-- 実行ボタン -->
+        <button type="button" id="submitBtn" onclick="executeAction()">登録する</button>
+    </form>
+</body>
+</html>

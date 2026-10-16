@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&display=swap');
+
+/* デフォルト（カントリーブラウン）のカラー設定 */
+:root {
+    --bg-color: #f7f1e5;
+    --text-color: #4a3b32;
+    --border-color: #8b5a2b;
+    --title-color: #5c3a21;
+    --h2-color: #6e4727;
+    --table-header: #d7c4b7;
+    --table-border: #eedcd0;
+    --form-bg: #f0e6d2;
+    --form-border: #d2c0a8;
+    --input-bg: #fffcf7;
+    --btn-bg: #8b5a2b;
+    --btn-hover: #6e4727;
+}
+
+/* ナチュラルグリーン */
+[data-theme="green"] {
+    --bg-color: #f0f4ee;
+    --text-color: #2d3b2d;
+    --border-color: #556b2f;
+    --title-color: #3b4d20;
+    --h2-color: #465c26;
+    --table-header: #c8d6c1;
+    --table-border: #e0e8db;
+    --form-bg: #e2ebd9;
+    --form-border: #bdcaa8;
+    --input-bg: #fafffa;
+    --btn-bg: #556b2f;
+    --btn-hover: #3e4f22;
+}
+
+/* スウィートピンク */
+[data-theme="pink"] {
+    --bg-color: #fcf0f2;
+    --text-color: #4a3236;
+    --border-color: #b86b77;
+    --title-color: #7c3b45;
+    --h2-color: #934954;
+    --table-header: #e8c4ca;
+    --table-border: #f3dcde;
+    --form-bg: #f7dede;
+    --form-border: #dfb2b8;
+    --input-bg: #fffafd;
+    --btn-bg: #b86b77;
+    --btn-hover: #8f4f5a;
+}
+
+/* クラシックブルー */
+[data-theme="blue"] {
+    --bg-color: #eef3f7;
+    --text-color: #2b3542;
+    --border-color: #466995;
+    --title-color: #284063;
+    --h2-color: #33527a;
+    --table-header: #c3d4e6;
+    --table-border: #e1e9f2;
+    --form-bg: #dae5f0;
+    --form-border: #aac2d9;
+    --input-bg: #f7fafc;
+    --btn-bg: #466995;
+    --btn-hover: #314c6e;
+}
+
+/* 基本レイアウト */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Kiwi Maru', 'Hiragino Maru Gothic ProN', 'メイリオ', sans-serif;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 3px dashed var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    color: var(--title-color);
+    font-size: 28px;
+    border-bottom: 2px solid var(--table-header);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: var(--h2-color);
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+h2::before {
+    content: '☕';
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+caption {
+    font-weight: bold;
+    color: var(--title-color);
+    margin-bottom: 6px;
+    text-align: left;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+th {
+    background-color: var(--table-header);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border: none;
+    font-weight: 500;
+}
+
+td {
+    padding: 8px 12px;
+    border-top: 1px solid var(--table-border);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    text-align: center;
+}
+
+/* テーブル行ホバー時 */
+#moneyRecord tbody tr {
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+#moneyRecord tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+form {
+    background-color: var(--form-bg);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--form-border);
+    margin-bottom: 15px;
+    line-height: 2.2;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 6px 10px;
+    border: 1px solid var(--form-border);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-family: inherit;
+    outline: none;
+    margin: 3px 0;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--border-color);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="radio"] {
+    accent-color: var(--border-color);
+    margin-left: 8px;
+}
+
+button {
+    background-color: var(--btn-bg);
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.delete-mode button {
+    background-color: #a9524a !important;
+}
+
+.delete-mode button:hover {
+    background-color: #883d36 !important;
+}
